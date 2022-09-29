@@ -1,0 +1,7 @@
+watchlist selector: #button-1414-btnIconEl - id name
+
+orderbook refresh selector : #button-1192-btnIconEl - id name
+
+portfolio refresh selector : #button-1345 - id name
+
+Time selector: #label-1066 - id name

@@ -1,0 +1,700 @@
+<html class=" desktop landscape"><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<style type="text/css">
+body  {
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center;
+}
+
+.bodyClass{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+html{
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+	-moz-text-size-adjust:100%;
+	text-size-adjust:100%;
+}
+</style>
+
+
+<meta content="-1" http-equiv="Expires">
+<meta content="no-cache" http-equiv="Pragma">
+<meta content="no-cache" http-equiv="Cache-Control">
+<title>Trading Portal</title>
+<link href="../favicon-asiaebroker.ico" rel="icon" type="image/png">
+<script language="JavaScript">
+		function noBack(){window.history.forward()}
+		noBack();
+		window.inhibited_load=noBack;
+		window.onpageshow=function(evt){if(evt.persisted)noBack()}
+		window.inhibited_unload=function(){void(0)}
+	</script>
+<script language="JavaScript" src="/gcBURSA/js/LinkFunc.js"></script>
+<script type="text/javascript" src="/gcBURSA/js/popupWindow.js"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/gcBURSA/js/device.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/gcBURSA/js/tickerConnectEngineNew.js"></script>
+<script language="JavaScript" type="text/javascript" src="/gcBURSA/js/tickerConnectNew.js"></script>
+</head><body><iframe src="" id="fraMenu" scroll="no" scrolling="no" frameborder="1" style="position:absolute;visibility:hidden;filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);border:0;top:0;left:0;width:0;height:0;background-color:#000000;z-index:998;" class="iframe"></iframe>
+<iframe src="" id="fraSubMenu" scroll="no" scrolling="no" frameborder="1" style="position:absolute;visibility:hidden;filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);border:0;top:0;left:0;width:0;height:0;background-color:transparent;z-index:997;" class="iframe"></iframe>
+
+
+<script language="javascript">
+		var bodyHeight, bodyWidth, bTablet, bDesktop, bMobile;
+		var isBasicVersion = '';
+		bTablet = device.tablet();
+		bMobile = device.mobile();
+		bDesktop = device.desktop();
+
+		if(bTablet){
+			$('head').append('<META name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">');
+		}
+		function getScreenSize(){
+			bodyHeight=("innerHeight" in window)?window.innerHeight:document.documentElement.offsetHeight;
+			bodyWidth =("innerWidth" in window)?window.innerWidth:document.documentElement.offsetWidth;
+
+			if(bTablet){
+				bodyWidth = ""+parseInt(bodyWidth);
+				bodyHeight = ""+parseInt(bodyHeight)-85;
+			}else{
+				bodyWidth = ""+parseInt(bodyWidth)-17;
+				// bodyHeight = ""+parseInt(bodyHeight)-109;
+				bodyHeight = ""+parseInt(bodyHeight)-85;
+				//$('body').css('overflow-y','hidden');
+				//$('body').css('margin', "5px");
+			}
+			bodyHeight = ""+parseInt(bodyHeight);
+
+			//$("body").append("width="+bodyWidth+",height="+bodyHeight);
+
+			if(bDesktop){
+				if(bodyHeight < 500){ bodyHeight = 500; }
+				if(bodyWidth < 1000){ bodyWidth = 1000; }
+			}else if(bMobile){
+				bodyHeight = 600;
+				if(bodyWidth < 1000){ bodyWidth = 1000; }
+			}
+
+			if(isBasicVersion ==  'Y'){
+				if(bMobile){
+					if(bodyWidth < 800){ bodyWidth = 800; }
+				}
+				bodyHeight = 500;
+			}
+		}getScreenSize();
+
+		function adjustSize(){
+			$("#rtLogo").css("width", bodyWidth);
+			$("#rtMenu").css("width", bodyWidth);
+			//$("#rtFooter").css("width", bodyWidth);
+			$("#tclitewin").css("width", bodyWidth);
+			$("#tclitewin").css("height", bodyHeight);
+			if(!bTablet){
+				$("#rtTicker").children("table").css("width",bodyWidth);
+				$("#idScroller3").parent().css("width",bodyWidth-8);
+			}else{
+				$("body").addClass("bodyClass");
+				window.scrollTo(0,0);
+			}
+		}
+
+		$(function(){
+			adjustSize();
+			if(bTablet){
+				$("#rtFooter").css("display","none");
+				$("#trLogo").css("display","none");
+			}
+
+		});
+
+		$(window).bind("orientationchange resize",function(){
+			//alert("window on resize/orientation change");
+			console.log("window on resize/orientation change");
+			getScreenSize();
+			adjustSize();
+		});
+	</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td align="center" height="20">
+<script language="JavaScript" src="/gcBURSA/js/i18next.min.js"></script>
+<script language="JavaScript" src="/gcBURSA/js/i18next-jquery.min.js"></script>
+<script language="JavaScript" src="/gcBURSA/js/i18nextXHRBackend.min.js"></script>
+<script language="JavaScript" src="/gcBURSA/js/language.js"></script>
+<script language="javascript" src="/gcBURSA/js/popupWindow.js"></script>
+<script language="javascript" src="/gcBURSA/js/bootstrap.3.3.6.min.js"></script>
+<script language="javascript" src="/gcBURSA/js/bootstrap_dropdown.js"></script>
+<script language="javascript" src="/gcBURSA/js/jquery.cookie.js"></script>
+<script language="javascript" src="/gcBURSA/js/th_lang.js"></script>
+<link rel="stylesheet" href="/gcBURSA/style/default.css">
+<link rel="stylesheet" href="/gcBURSA/style/th_lang.css">
+<script type="text/javascript" src="/gcBURSA/js/mod_poplogin.js"></script>
+<link rel="stylesheet" href="/gcBURSA/style/mod_poplogin.css">
+<style>
+.btnHome {
+    cursor: pointer;
+    width: 75px;
+    height: 20px;
+
+    background-image: url(/gcBURSA/img/button/Home.png);
+
+    background-repeat: no-repeat;
+    text-decoration: none;
+    font-size: 9px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    display: inline-block;
+    top: -3px;
+    position: relative;
+    margin: 0px 0px 0px 15px;
+}
+.welcome {
+    font-family: tahoma, arial, verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    Color: #005496;
+    float: left;
+    display: inline-block;
+}
+body {
+	margin: 0;
+	/* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center;
+}
+
+.bodyClass {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+.aeb-button-cover {
+	align-items: center;
+    border-radius: 500px;
+    /* bottom: 16px; */
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    min-width: 32px;
+    position: fixed;
+    right: 5px;
+    width: 175px;
+    background-color: #281E96!important;
+    color: white;
+    top: 15px;
+}
+
+.aeb-button {
+	font-family: 'Hind', sans-serif;
+	display: block;
+	padding: 7px 12px;
+	border-radius: 15px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 15px;
+	max-width: 135px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 8px 0 #c7c7c7;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.aeb-button:hover {
+	text-decoration: none;
+	color: #fff;
+	box-shadow: 0 6px 14px 0 #c7c7c7;
+	transform: scale(1.05);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.aeb-button img {
+	vertical-align: middle !important;
+	max-width: 110px;
+}
+
+.clsGrayFont {
+	color:#696969;
+	font-family:Arial,Verdana;
+	font-size:10pt;
+	font-weight:bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 21px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #6470ce;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*changes end here*/
+
+/*
+Removed previous styles for Language Button.
+Added new styles August 27, 2019
+*/
+
+a.clsGrayFont {
+	cursor: pointer;
+}
+
+.active {
+	color: #6470ce !important;
+}
+
+</style>
+<style type="text/css">
+/*------------------------main menu--------------------------------*/
+	.nav-menu {
+	clear:both;
+	margin:0px;
+	padding:0px;
+	position:relative;
+	z-index:199;
+	font-family:Muli,Tahoma,Arial,Helvetica,Verdana,sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	border-width:1px;
+	border-style:solid;
+	border-color:#F7A428;
+	}
+	.ie .nav-menu {
+	margin-top:-5px;
+	}
+	.nav-menu ul {
+	list-style:none;
+	margin:0;
+	padding:0px;
+	position: relative;
+	z-index: 100;
+	}
+	.ie7 .nav-menu ul {
+	padding:0px;
+	}
+	.nav-menu li,.nav-menu a {
+	display:inline-block;
+	}
+	.ie6 .nav-menu li,.ie7 .nav-menu li,.ie6 .nav-menu a,.ie7 .nav-menu a {
+	display:inline;
+	zoom:1;
+	z-index:200;
+	}
+	.level-1 {
+	text-align:left;
+	max-width:1000px;
+	background-color: #F7A428;
+	vertical-align:middle;
+	}
+	.level-1 a {
+	cursor:pointer;
+	text-decoration:none;
+	font:bold 11px Muli,Tahoma,arial,verdana,sans-serif;
+	text-align:center;
+	vertical-align:middle;
+	display:block;
+	min-width:65px;
+	border-style:solid;
+	border-color:#F7A428;
+	margin:0;
+	/*border-width:1px;
+	padding:2px;*/
+	color:#000;
+	background-color:#F7A428;
+	}
+
+	.level-1 span {
+	cursor:pointer;
+	text-decoration:none;
+	font:bold 11px Muli,Tahoma,arial,verdana,sans-serif;
+	text-align:center;
+	vertical-align:middle;
+	display:block;
+	min-width:65px;
+	border-style:solid;
+	border-color:#F7A428;
+	margin:0;
+	/*border-width:1px;
+	padding:2px;*/
+	color:#000;
+	background-color:#F7A428;
+	}
+	.level-1 a:hover {
+
+	}
+	.level-1 .selected {
+
+	}
+	.level-1 li {
+	position:relative;
+	}
+	.level-1 li a.selected {
+
+	}
+	.level-1 li a.selected:hover {
+
+	}
+	/*----------sub levels--------*/
+	ul .level-2 {
+	margin-top:-1px;
+	display:none;
+	background-color:#F7A428;
+	}
+	.level-2 a {
+	background-color:#F7A428;
+	width:149px;
+	text-align:left;
+	z-index:2000;
+	color:#ffffff;
+	border-color:#F7A428;
+	border-width: 0 2px 2px;
+	padding:1px 2px;
+	}
+	.level-2 a:hover {
+	background-color:#E60012;
+	color:#ffffff;
+	border-color:#E60012;
+	border-width: 0 2px 2px;
+	}
+	li:hover .level-2 {
+	/*the magic*/
+	display:block;
+	position:absolute;
+	left:0px;
+	top:20px;
+	z-index:2000;
+	color:#ffffff;
+	}
+	.level-2 .selected {
+	z-index:2000;
+	background-color:#E60012;
+	}
+	.level-2 li a.selected:hover {
+	color: #ffffff;
+	}
+	.level-2 span {
+	background-color:#F7A428;
+	width:170px;
+	text-align:left;
+	z-index:2000;
+	color:#000;
+	border-color:#F7A428;
+	border-width: 0 2px 2px;
+	padding:1px 2px;
+	}
+	.level-2 span:hover {
+	background-color:#fff;
+	color:#F7A428;
+	border-color:#fff;
+	border-width: 0 2px 2px;
+	}
+	.level-2 li span.selected:hover {
+	color: #ffffff;
+	}
+/*-----Top Banner-----*/
+	.logoDiv{
+		width: 275px;
+		margin-right: 10px;
+		display: inline-block;
+	}
+	.dateDIV{
+		margin-top:20px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.noteDiv {
+		float: left;
+		padding-top: 2px;
+	}
+/*-----Top banner End ------*/
+
+    /* bursa header and footer branding */
+    .bursa-branding {
+        background-color: #3e4180;
+        font-family: "Trebuchet MS" !important;
+        color: #fff;
+    }
+
+    .header {
+        padding: 17px 30px 10px;
+        text-align: left;
+    }
+
+    .header .bursa-logo {
+        width: 240px;
+        height: 34px;
+    }
+
+    .footer {
+        padding: 11px 30px 5px;
+        display: flex;
+        font-size: 12px;
+    }
+    .footer > div {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer .bursa-logo {
+        width: 220px;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    .created-by {
+        margin-bottom: 3px;
+        text-align: left;
+    }
+    .copyright {
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        color: rgba(255,255,255,0.68);
+    }
+
+	</style>
+<header class="bursa-branding header">
+<div>
+<a href="https://bursaacademy.bursamarketplace.com/en/home">
+<img src="../bursa/images/bursa-academy-logo.svg" alt="Bursa Academy" class="bursa-logo">
+</a>
+</div>
+<div style="font-size:12px;font-weight:bold;text-align:left;margin: 10px 0 0 -5px;">&nbsp;<span data-i18n="20156">Welcome</span>&nbsp;BAS0012381!</div>
+</header>
+<table id="rtLogo" border="0" cellspacing="0" cellpadding="0" width="1000" valign="top" style="width: 1000px; padding: 10px 10px 0px 0px; display: none;">
+<tbody><tr id="trLogo" name="trLogo">
+<td align="left" width="25%">
+<div style="margin-top: -7.5px;margin-bottom: 7.5px;" class="welcome">
+
+</div>
+<a href="/"><span class="btnHome" style="display:none"></span></a>
+</td>
+
+</tr><tr style="display: none;">
+<td align="left">
+
+
+
+
+</td>
+<td align="right" width="13%" colspan="2" style="display:none">
+<a href="/gcBURSA/web/html/bursaPDF.html" target="_blank" style="padding-right: 20px;"><strong>CDS Forms</strong></a>
+<a href="https://plc.asiaebroker.com/gcPLC/web/html/eventCalendar.html" target="_blank" style="padding-right: 20px;"><strong>Event Calendar</strong></a>
+<font class="clsGrayText">Mon 19 Sep 2022&nbsp;</font>
+</td>
+</tr>
+</tbody></table>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		var url = (new URL(parent.document.location.href)).searchParams;
+		var language = url.get("lang");
+		var sector = url.get("sector");
+
+		if (sector !== null) {
+			$("#checkbox").prop('checked',true);
+
+		}else{
+			$("#checkbox").prop("checked",false);
+		}
+
+		if (language !== null) {
+			if (language == "CN") {
+				$("#chinese").addClass('active');
+			}else if (language == "EN") {
+				$("#english").addClass('active');
+			}else {
+	    		$("#bm").addClass('active');
+			}
+		}else{
+			$("#english").addClass('active');
+		}
+	});
+
+	function popupWin(act){
+		$("#popupIFrame").attr("src","/gcBURSA/web/html/cliLoginPop.html?act="+act);
+		$("#triggerAnchor")[0].click()
+	}
+
+	function openShariah(checkbox) {
+		var url = (new URL(parent.document.location.href)).searchParams;
+		var language = url.get("lang");
+		var sector = url.get("sector");
+		if (checkbox.checked) {
+			if (language == "CN") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=CN&sector=2212";
+			}else if (language == "EN") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=EN&sector=2212";
+			}else if (language == "BM") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=BM&sector=2212";
+			} else {
+				top.location.href="/gcBURSA/tcplus/index.jsp?sector=2212";
+			}
+		} else {
+			if (language == "CN") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=CN";
+			}else if (language == "EN") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=EN";
+			}else if (language == "BM") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=BM";
+			} else {
+				top.location.href="/gcBURSA/tcplus/index.jsp";
+			}
+
+			//if ($('#tcpluswin2').prop('src') == "?lang=CN") {
+				//window.location.replace("/gcAM/tcplus/index.jsp?lang=CN&sector=2212");
+			//	top.location.href="/tcplus?lang=CN&sector=2212";
+			//}
+			/*added to handle BM*/
+			//else if ($('#tcpluswin2').prop('src') == "?lang=BM") {
+				//window.location.replace("/gcAM/tcplus/index.jsp?lang=BM&sector=2212");
+			//	top.location.href="/tcplus?lang=BM&sector=2212";
+			//}
+			//else {
+				//window.location.replace("/gcAM/tcplus/index.jsp?sector=2212");
+			//	top.location.href="/tcplus?sector=2212";
+			//}
+			//}else if($('#tcpluswin2').prop('src') =="?lang=CN&sector=2212"){
+			//	window.location.replace("/gcAM/tcplus/index.jsp?lang=CN");
+			//}
+			/*added to handle BM*/
+			//else if( $('#tcpluswin2').prop('src')  =="?lang=BM&sector=2212"){
+			//	window.location.replace("/gcAM/tcplus/index.jsp?lang=BM");
+			//}
+			//else {
+			//	window.location.replace("/gcAM/tcplus/index.jsp");
+		}
+	}
+
+	function changeLang(language){
+		var urlString = parent.document.location.href;
+		var url = new URL(urlString)
+		var language = language;
+		var sector = url.searchParams.get("sector");
+
+		if (sector == null) {
+			if (language == "EN") {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang=EN";
+			}else {
+				top.location.href="/gcBURSA/tcplus/index.jsp?lang="+language;
+			}
+		}else{
+			top.location.href="/gcBURSA/tcplus/index.jsp?sector=2212&lang="+language;
+		}
+	}
+</script>
+<div id="stickydiv-anchor" style="display:none;">&nbsp;</div>
+<div id="stickydiv" class="regular">
+<div id="stickContent">
+<div style="display:none;"><a id="triggerAnchor" rel="tppoplogin" class="poplogin" href="#">trigger</a></div>
+<div style="display: none; width: 500px; margin-top: -238.5px; margin-left: -340px; " id="tppoplogin" class="popbox">
+<iframe id="popupIFrame" name="popupIFrame" style="position:relative;" src="" scrolling="no" frameborder="0" height="470" width="500"></iframe>
+</div>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td align="center">
+<script type="text/javascript">
+					document.write('<iframe scrolling="no" id="tclitewin" src="../tcplus/main.jsp?lang=en&basic=&ts='+new Date().getTime()+'" width="'+bodyWidth+'px" height="'+bodyHeight+'" style="border:none;" frameborder="0"></iframe>');
+				</script><iframe scrolling="no" id="tclitewin" src="../tcplus/main.jsp?lang=en&amp;basic=&amp;ts=1663576210234" width="1000px" height="669" style="border: none; width: 1000px; height: 669px;" frameborder="0"></iframe>
+</td>
+</tr>
+</tbody></table>
+<footer class="bursa-branding footer">
+<div>
+<span class="created-by">CREATED FOR YOU BY</span>
+<a><img alt="" src="../bursa/images/bursa-footer-logo.png" class="bursa-logo"></a>
+</div>
+<div class="copyright">
+<p>© Copyright 2022 All Rights Reserved - BURSA MALAYSIA, Registration No. 97601004668 (30632-P)</p>
+</div>
+</footer>
+<script language="JavaScript">
+		function A_OnClick(vsLinkURL, vsParam){
+			if (vsParam == '') {
+				vsParam = "top=0,left=100,width=800,height=520,scrollbars=yes"
+			}
+			OpenLinkWindow(vsLinkURL, "WinNews", vsParam);
+		}
+
+		function backToMain() {
+			parent.location.href="https://tcplus.bursaacademy.bursamarketplace.com/gcBURSA/cliLogout.jsp";
+		}
+	</script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon="{&quot;rayId&quot;:&quot;74d0f750dc9813fc&quot;,&quot;token&quot;:&quot;5438863ed15449b281518ae9adaf5fd2&quot;,&quot;version&quot;:&quot;2022.8.1&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+</body></html>

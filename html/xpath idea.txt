@@ -1,0 +1,11 @@
+//*[@id="ext-element-216"]
+
+//*[@id="gridview-1478-record-69"]/tbody/tr/td[6]/div bid price
+1 = stock name
+5 = bid qty
+6 = bid price
+7 = ask price
+8 = ask qty
+
+//*[@id="ext-element-211"]
+/html/body/div/div/div[2]/table[8]/tbody/tr/td[2]/div

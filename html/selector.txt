@@ -1,0 +1,150 @@
+#gridview-1259 > div.x-grid-item-container
+
+submit_locator = locate_with(By.TAG_NAME, "button").below({By.ID: "email"}).to_right_of({By.ID: "cancel"})
+
+#gridview-1259-record-29 > tbody > tr > td.x-grid-cell.x-grid-td.x-grid-cell-orderStatusPanel02.quotePanelCell.N2N_FontColorString.N2N_stockNameStyle.display-render.x-unselectable
+
+#gridview-1259-record-28 > tbody > tr > td.x-grid-cell.x-grid-td.x-grid-cell-orderStatusPanel02.quotePanelCell.N2N_FontColorString.N2N_stockNameStyle.display-render.x-unselectable
+
+
+#gridview-1259 > div.x-grid-item-container get element by css selector
+#gridview-1259-record-28 get_elements by tagname("table") + get_attribute("id")
+//*[@id="gridview-1259-record-28"]/tbody/tr/td[5]  use id+xpath to get boxes
+
+#gridview-1259-record-26 > tbody > tr > td.x-grid-cell.x-grid-td.x-grid-cell-orderStatusPanel02.quotePanelCell.N2N_FontColorString.N2N_stockNameStyle.display-render.x-unselectable
+
+
+
+//*[@id="gridview-1259-record-28"]/tbody/tr/td[5]
+
+Cancel order flow and selector:
+Right click order no.
+Cancel in drop down menu
+//*[@id="ext-453-textEl"]
+
+Cancel button
+//*[@id="button-1571-btnInnerEl"]
+Ok button
+//*[@id="button-1005-btnInnerEl"]
+Close button
+//*[@id="tool-1628-toolEl"]
+
+
+
+#gridview-1385
+
+Time selector: #label-1066 - id name
+//*[@id="label-1066"] - xpath
+
+Portfolio selector
+
+#gridview-1385 > div.x-grid-item-container
+//*[@id="gridview-1385-record-124"]/tbody/tr/td[1] stock name
+//*[@id="gridview-1385-record-124"]/tbody/tr/td[3] qty on hand
+//*[@id="gridview-1385-record-124"]/tbody/tr/td[6] avg.buy.prc
+
+Order book selector
+#gridview-1259
+//*[@id="gridview-1259-record-123"]/tbody/tr/td[2] stock name
+//*[@id="gridview-1259-record-123"]/tbody/tr/td[4] action: sell/buy
+//*[@id="gridview-1259-record-123"]/tbody/tr/td[5] Ord no
+//*[@id="gridview-1259-record-123"]/tbody/tr/td[8] staus: filled, partially filled, queued
+
+Stock list selector
+#gridview-1478
+
+#customspinner-1511-inputEl
+#customspinner-1511-inputEl
+#customspinner-1511-inputEl
+#customspinner-1511-inputEl
+
+#button-1571-btnEl
+Place order tab
+#button-1571-btnEl
+
+#customspinner-1511-inputEl input qty
+#button-1571-btnEl  buy/sell button
+
+#tool-1628  close button
+#tool-1628-toolEl
+
+#messagebox-1001-displayfield-inputEl > div > span > button:nth-child(1) ok button
+#messagebox-1001-displayfield-inputEl > div > span > button:nth-child(2) cancel button
+
+
+#component-1560 > div ticket detail
+//*[@id="tool-1628"] close button
+
+Page title
+
+Login Page:
+Bursa Academy | Login or Sign in To Bursa Academy
+
+Enter email address selector
+//*[@id="ctl13_txtEmail"]
+//*[@id="ctl13_txtEmail"]
+password selector
+//*[@id="ctl13_txtPassword"]
+submit button
+//*[@id="ctl13_btnLogin"]
+
+Dashboard Page:
+My Dashboard | Bursa Academy | Empowering You
+
+//*[@id="newnav"]/div[2]/div[1]/div[1]/div[6] Stimulator : Move cursor to stimulator
+
+
+Ticket No: 70A1A01836AAAACB
+Your order 7113.KL/TOPGLOV.KL - Buy 100 unit(s)@ Limit 0.705, Validity for Day is submitted on 2022-09-19T23:50:09.724
+For the status of submitted order, please go to order book
+
+Order:
+//*[@id="customspinner-1511-inputEl"] input qty x100
+//*[@id="combobox-1509-inputEl"] clear box, input price
+//*[@id="button-1571-btnInnerEl"] buy button (click)
+//*[@id="messagebox-1001-displayfield-inputEl"]/div/span/button[1] ok button, click
+
+//*[@id="component-1560"]/div Ticket No.
+//*[@id="tool-1628-toolEl"]    close button
+
+done buy
+
+Refresh button selector:
+Portfolio
+//*[@id="button-1345-btnIconEl"]
+Order book
+//*[@id="button-1192-btnIconEl"]
+Watchlist
+//*[@id="button-1414-btnIconEl"]
+
+
+Input qty
+//*[@id="customspinner-1514-inputEl"]
+//*[@id="customspinner-1514-inputEl"]
+Input price
+//*[@id="combobox-1512-inputEl"]
+Buy Button
+//*[@id="button-1574-btnInnerEl"]
+
+Ok Button
+//*[@id="messagebox-1001-displayfield-inputEl"]/div/span/button[1]
+
+Ticket no info
+//*[@id="component-1563"]/div
+
+Close button
+//*[@id="tool-1631-toolEl"]
+//*[@id="tool-1631-toolEl"]
+
+
+Cancel order
+Cancel
+//*[@id="ext-453-textEl"]
+Cancel button
+//*[@id="button-1574-btnInnerEl"]
+Ok button
+//*[@id="button-1005-btnInnerEl"]
+Close button
+//*[@id="tool-1631-toolEl"]
+
+
